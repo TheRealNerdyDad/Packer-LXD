@@ -7,11 +7,6 @@ packer {
   }
 }
 
-variable "webadmin_password" {
-  type    = string
-  default = "P1Hole"
-}
-
 source "lxd" "ubuntu" {
   image = "ubuntu:xenial"
 }
@@ -26,7 +21,17 @@ build {
     inline = [
       "echo Installing Pi-Hole",
       "curl -sSL https://install.pi-hole.net | bash",
-      "pihole -a -p ${var.webadmin_password}",
+    ]
+  }
+
+  provisioner "file" {
+    source      = "setupVars.conf"
+    destination = "/etc/pihole/setupVars.conf"
+  }
+
+  provisioner "shell" {
+    inline = [
+      "pihole -r",
     ]
   }
 

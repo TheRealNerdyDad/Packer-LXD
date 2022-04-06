@@ -12,7 +12,7 @@ source "lxd" "ubuntu" {
 }
 
 build {
-  name = "pihole-lxd"
+  name = "generic-lxd"
   sources = [
     "source.lxd.ubuntu"
   ]

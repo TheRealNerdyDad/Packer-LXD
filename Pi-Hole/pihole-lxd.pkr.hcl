@@ -43,7 +43,7 @@ build {
   }
 
   provisioner "file" {
-    source      = "pi-hole.conf"
+    source      = "Unbound.conf"
     destination = "/etc/unbound/unbound.conf.d/pi-hole.conf"
   }
 

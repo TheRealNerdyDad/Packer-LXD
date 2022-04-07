@@ -23,7 +23,7 @@ build {
       "curl -sSL https://install.pi-hole.net | bash",
     ]
   }
-
+/*
   provisioner "file" {
     source      = "setupVars.conf"
     destination = "/etc/pihole/setupVars.conf"
@@ -51,5 +51,5 @@ build {
     inline = [
       "sudo service unbound restart",
     ]
-  }
+  } */
 }
